@@ -1,0 +1,8 @@
+#lang planet neil/sicp
+
+(define (accumlate func null-val term a next b)
+  (if (> a b)
+      null-val
+      (func (term a)
+            (accumlate func null-val term (next a) next b))))
+(check-expect (accumlate + 0 identity 1 inc 5) 15)
