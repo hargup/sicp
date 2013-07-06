@@ -20,4 +20,5 @@
 
 (cont-frac (lambda (i) 1.0)
              (lambda (i) 1.0)
-             40)
+             11)
+;; We need to calculate the sum upto 12 places to make it correct upto four decimal places
