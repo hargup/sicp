@@ -10,14 +10,10 @@
 ; current -> c
 ; power left -> n
 ; b 
-(define (mod2 n)
-  (if (even? n)
-      (/ n 2)
-      (/ (- n 1) 2)))
 
 (define (fast-exp-iter c n b)
 (if (= n 0)
     c
     (if (even? n)
-    (fast-exp-iter c (mod2 n) (* b b))
-    (fast-exp-iter (* c b) (mod2 n) (* b b)))))
+    (fast-exp-iter c (/ n 2) (* b b))
+    (fast-exp-iter (* c b) (/ (dec n) 2) (* b b)))))
