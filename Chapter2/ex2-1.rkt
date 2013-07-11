@@ -5,10 +5,13 @@
       (gcd b (remainder a b))))
 
 (define (make-rat n d)
-  (let ((g (gcd n d)))
+  (define rat (let ((g (gcd n d)))
     (if (< d 0)
         (cons (/ (- n) g) (/ (- d) g))
     (cons (/ n g) (/ d g)))))
+  rat
+  ;(print-rat rat)
+  )
 
 (define (numer x) (car x))
 
@@ -42,3 +45,6 @@
   (display "/")
   (display (denom x)))
 
+(define minus-half (make-rat 1 -2))
+(define two/three (make-rat 2 3))
+(check-expect (add-rat minus-half two/three) (make-rat 1 6))
