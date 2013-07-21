@@ -14,5 +14,6 @@
         result
         (iter (next a) (f result a))))
   (iter (inc a) a))
+
 (check-expect (repeated + identity 1 inc 5) 15)
 
